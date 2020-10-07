@@ -1,0 +1,83 @@
+body, p, div{
+  margin: 0;
+  padding: 0;
+}
+.calculatorModel {
+  /* border: 5px solid rgb(16, 35, 148); */
+  width: 400px;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #282C34;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.container {
+  width: 320px;
+  height: 420px;
+  /* border: 5px solid rgb(11, 248, 138); */
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  /* align-items: spa; */
+  /* max-height: 400 */
+}
+.model {
+  color: white;
+  font-size: 18px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+.fieldContainer {
+  margin-top: 20px;
+}
+.field {
+  font-size: 40px;
+  font-weight: bold;
+  outline: none;
+  height: 70px;
+  width: 310px;
+  outline: 2px solid #16181D;
+}
+.functions {
+  /* border: 2px solid white; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 312px;
+  align-content: space-between;
+  margin-top: 20px;
+}
+.button {
+  color: white;
+  line-height: 42px;
+  background-color: #6E7279;
+  width: 42px;
+  height: 42px;
+  margin: 5px;
+  text-align: center;
+  cursor: pointer;
+  outline: 2px solid #16181D;
+}
+.button.long {
+  /* height: 89px; */
+  flex-basis: 94px;
+  line-height: 89px;
+}
+.button.red {
+  background-color: red;
+}
+.button.blue {
+  background-color: blue;
+}
+.memoryContainer {
+  font-size: 16px;
+  color: white;
+}
+.button:hover {
+  outline: 3px solid #16181D;
+  outline-offset: -3px;
+}

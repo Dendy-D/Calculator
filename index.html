@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css_style/style.css">
+  <title>Calculator</title>
+</head>
+
+<body>
+
+  <div class="calculatorModel" id="calculatorModel" onmousedown="return false">
+
+    <div class="container">
+      <div class="memoryContainer">Currect Memory : <span id="memory">0</span></div>
+      <div class="model">Daniel_11111010000</div>
+      <div class="fieldContainer">
+        <input type="text" class="field" id="field" readonly>
+      </div>
+
+      <div class="functions">
+        <div class="button" onclick="changeMemory('MC')">MC</div>
+        <div class="button" onclick="cleanOne()">&#8594</div>
+        <div class="button" onclick="insertForNum('7')">7</div>
+        <div class="button" onclick="insertForNum('4')">4</div>
+        <div class="button" onclick="insertForNum('1')">1</div>
+        <div class="button" onclick="insertForNum('0')">0</div>
+        <div class="button" onclick="changeMemory('MR')">MR</div>
+        <div class="button" onclick="insert('(')">(</div>
+        <div class="button" onclick="insertForNum('8')">8</div>
+        <div class="button" onclick="insertForNum('5')">5</div>
+        <div class="button" onclick="insertForNum('2')">2</div>
+        <div class="button" onclick="insertForNum('00')">00</div>
+        <div class="button" onclick="changeMemory('M-')">M-</div>
+        <div class="button" onclick="insert(')')">)</div>
+        <div class="button" onclick="insertForNum('9')">9</div>
+        <div class="button" onclick="insertForNum('6')">6</div>
+        <div class="button" onclick="insertForNum('3')">3</div>
+        <div class="button" onclick="insertForDot('.')">.</div>
+        <div class="button" onclick="changeMemory('M+')">M+</div>
+        <div class="button" onclick="insert('**')">**</div>
+        <div class="button" onclick="insert('%')">%</div>
+        <div class="button" onclick="insert('-')">-</div>
+        <div class="button long" onclick="insert('+')">+</div>
+        <div class="button red" onclick="clean()">C</div>
+        <div class="button" onclick="insertForDoubleSign('-')">±</div>
+        <div class="button" onclick="insert('/')">/</div>
+        <div class="button" onclick="insert('*')">&times</div>
+        <div class="button long blue" onclick="equal()">=</div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
