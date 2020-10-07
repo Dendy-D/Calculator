@@ -81,3 +81,6 @@ body, p, div{
   outline: 3px solid #16181D;
   outline-offset: -3px;
 }
+.size {
+  font-size: 30px;
+}

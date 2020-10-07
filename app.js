@@ -3,7 +3,6 @@ let memoryValue = document.getElementById('memory');
 let calculatorModel = document.getElementById('calculatorModel');
 const arr = ['+', '-', '.', '%', '*', '/', '**', '('];
 
-
 function insertForNum(num) {
   field.value += num;
 }
@@ -11,10 +10,19 @@ function insert(sign) {
   let newArr = field.value.split('');
   if (!arr.includes(newArr[newArr.length - 1]) && newArr.length) {
     field.value += sign;
+
+    if (newArr.includes('+') || newArr.includes('-') || newArr.includes('*') || newArr.includes('%') || newArr.includes('**') || newArr.includes('/')) {
+      field.value = eval(newArr.join('')) + sign;
+      if (field.value.length > 13) {
+        field.classList.add('size');
+      }
+    }
+
   }
 }
 function clean() {
   field.value = '';
+  field.classList.remove('size');
 }
 function cleanOne() {
   let newArr = field.value.split('');
@@ -25,7 +33,7 @@ function insertForDot(dot) {
   let newArr = field.value.split('');
   if (newArr.length && !newArr.includes('.')) field.value += dot;
 }
-function insertForDoubleSign(minus) {
+function insertForDoubleSign() {
   let newArr = field.value.split('')
   if (newArr[0] !== '-') {
     field.value = `-${field.value}`;
@@ -34,17 +42,26 @@ function insertForDoubleSign(minus) {
 function equal() {
   let answer = eval(field.value);
   let newArr = String(answer).split('');
-  if (newArr.length > 14) newArr.length = 14;
-  if (newArr.indexOf('.') != -1) {
-    let repeat = newArr.slice(newArr.indexOf('.') + 1);
-    let main = newArr.slice(0, newArr.indexOf('.') + 1);
+  if (!checkLimitedSimbols) newArr.length = 13;
+  getFractionInPeriod(newArr);
+}
+
+function checkLimitedSimbols() {
+  let arr = field.value.split('');
+  return arr.length < 13;
+}
+
+function getFractionInPeriod(arr) {
+  if (arr.indexOf('.') != -1) {
+    let repeat = arr.slice(arr.indexOf('.') + 1);
+    let main = arr.slice(0, arr.indexOf('.') + 1);
     if (repeat.length > 6) {
       let set = new Set(repeat);
       if (set.size == 1) {
         field.value = `${main.join('')}(${Array.from(set)})`;
-      } else { field.value = newArr.join(''); }
-    } else { field.value = newArr.join(''); }
-  } else { field.value = newArr.join(''); }
+      } else { field.value = arr.join(''); }
+    } else { field.value = arr.join(''); }
+  } else { field.value = arr.join(''); }
 }
 
 const memory = {
